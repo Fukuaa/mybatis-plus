@@ -1,7 +1,9 @@
 package com.example.mybatisplus.config;
 
+import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,5 +21,14 @@ public class mybatis {
         interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
         return interceptor;
     }
-    
+    //分页插件
+    @Bean
+    public PaginationInnerInterceptor paginationInnerInterceptor(){
+        return new PaginationInnerInterceptor();
+    }
+    //逻辑删除
+    /*@Bean
+    public ISqlInjector sqlInjector() {
+        return new LogicSqlInjector();
+    }*/
 }

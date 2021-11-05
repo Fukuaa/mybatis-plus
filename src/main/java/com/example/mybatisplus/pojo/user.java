@@ -22,4 +22,6 @@ public class user {
     private Date updatetime;
     @Version
     private int version;
+    @TableLogic
+    private int deleted;
 }
